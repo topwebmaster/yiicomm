@@ -13,7 +13,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\models\BusTarifForm;
+use common\models\BusTarifForm;
 
 /**
  * Site controller
@@ -182,14 +182,14 @@ class SiteController extends Controller
     {
         $model = new BusTarifForm();
 
-        if ($model->load(Yii::$app->request->post())) {
+       /* if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
                 // form inputs are valid, do something here
                 return;
             }
-        }
+        }*/
 
-        return $this->render('BusTarifForm', [
+        return $this->render('busTarifForm_', [
             'model' => $model,
         ]);
     }

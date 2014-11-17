@@ -1,11 +1,12 @@
 <?php
+namespace common\models;
 /**
  * Created by PhpStorm yiicomm.
  * User: topwebmasterblog@gmail.com 
  * Date: 15.11.14
  * Time: 20:11
  */
-namespace frontend\models;
+
 
 use yii\base\Model;
 
