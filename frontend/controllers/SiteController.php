@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+
 use Yii;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
@@ -12,6 +13,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use frontend\models\BusTarifForm;
 
 /**
  * Site controller
@@ -165,6 +167,29 @@ class SiteController extends Controller
         }
 
         return $this->render('resetPassword', [
+            'model' => $model,
+        ]);
+    }
+
+   /* public function actionBusTarifForm(){
+        $model = new BusTarifForm;
+        if ($model->load(Yii::$app->request->post()) && $model->validate()){//Тут ставится условие если пользователь отправил форму и если пользователь удалил форму
+        }else{
+            return $this->render('busTarifForm',['model' => $model]);
+        }
+    }*/
+    public function actionBusTarifForm()
+    {
+        $model = new BusTarifForm();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                // form inputs are valid, do something here
+                return;
+            }
+        }
+
+        return $this->render('BusTarifForm', [
             'model' => $model,
         ]);
     }
